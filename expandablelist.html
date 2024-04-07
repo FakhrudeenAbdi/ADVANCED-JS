@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic styling for the list */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Styling for the list item titles */
+        li {
+            background-color: lightgray;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Styling for the hidden sub-list */
+        .hidden {
+            display: none;
+        }
+    </style>
+    <title>Expandable List</title>
+</head>
+<body>
+    <ul id="parent-list">
+        <li>
+            Title 1
+            <ul class="hidden">
+                <li>Content 1</li>
+                <li>Content 2</li>
+            </ul>
+        </li>
+        <li>
+            Title 2
+            <ul class="hidden">
+                <li>Content 3</li>
+                <li>Content 4</li>
+            </ul>
+        </li>
+        <li>
+            Title 3
+            <ul class="hidden">
+                <li>Content 5</li>
+                <li>Content 6</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        // Get the parent list element
+        const parentList = document.getElementById('parent-list');
+
+        // Add event listener to the parent list element
+        parentList.addEventListener('click', function(event) {
+            // Check if the clicked element is a list item
+            if (event.target.tagName === 'LI') {
+                // Toggle the visibility of the sub-list by toggling the 'hidden' class
+                event.target.querySelector('ul').classList.toggle('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
